@@ -1,0 +1,9 @@
+
+# Comments and blank lines are allowed.
+
+## Stow delete and activate script
+stow.sh
+
+## dotfiles git repo config
+.git
+

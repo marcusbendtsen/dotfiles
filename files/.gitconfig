@@ -1,0 +1,9 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+#	name = marcus
+#	email = marcus@penguin
+[credential]
+	helper = cache
+[pull]
+	rebase = false
