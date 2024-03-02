@@ -36,15 +36,22 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 
+(setenv "LANG" "UTF-8")
+
 (setq column-number-mode t)
 (setq split-width-threshold 80 split-height-threshold 120)
 (setq-default fill-column 160)
 
 
 ;;
-;; Elpy
-;;
+;; Elpy (Python)
+;; 
 (elpy-enable)
+
+(setq python-shell-interpreter "python"
+      python-shell-interpreter-args "-i")
+
+(setq python-shell-completion-native-enable nil)
 
 (add-hook 'python-mode-hook
 	  (lambda ()
@@ -55,6 +62,14 @@
 (setq python-indent-guess-indent-offset nil)
 (setq elpy-shell-use-project-root nil)
 (setq elpy-shell-starting-directory 'current-directory)
+
+;;
+;; ESS (R)
+;;
+(if (file-directory-p "/Library/Frameworks/R.framework/Resources/bin/")
+    (setq inferior-R-program-name "/Library/Frameworks/R.framework/Resources/bin/R"))
+
+
 
 
 ;;
