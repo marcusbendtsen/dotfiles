@@ -1,0 +1,21 @@
+# -*- mode: snippet -*-
+# name: qmd_minimum
+# key: qmd_minimum
+# expand-env: ((yas-indent-line 'fixed))
+# --
+
+---
+title: Title
+format:
+ docx:
+  default
+ html:
+  theme: darkly
+  page-layout: full
+---
+
+# Heading 1
+
+## Heading 2
+
+### Heading 3

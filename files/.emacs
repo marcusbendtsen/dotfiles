@@ -11,6 +11,7 @@
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (package-initialize)
 
+
 ;;
 ;; Backups
 ;;
@@ -21,10 +22,12 @@
       kept-old-versions 2
       version-control t)
 
+
 ;;
 ;; Theme
 ;;
 (load-theme 'solarized-dark t)
+
 
 ;;
 ;; Settings
@@ -36,6 +39,7 @@
 (setq column-number-mode t)
 (setq split-width-threshold 80 split-height-threshold 120)
 (setq-default fill-column 160)
+
 
 ;;
 ;; Elpy
@@ -52,20 +56,33 @@
 (setq elpy-shell-use-project-root nil)
 (setq elpy-shell-starting-directory 'current-directory)
 
+
 ;;
 ;; Quarto
 ;;
 (add-to-list 'auto-mode-alist '("\\.qmd\\'" . poly-quarto-mode))
+(use-package quarto-mode
+  :mode (("\\.qmd" . poly-quarto-mode))
+  )
+
 
 ;;
 ;; CSV
 ;;
 '(csv-separators '("," ";"))
 
+
 ;;
 ;; Org
 ;;
 (if (file-directory-p "~/workspace/organiser/") (load "~/.emacs-org.el"))
+
+
+;;
+;; Snippets
+;;
+(load "~/.emacs-snippets.el")
+(add-hook 'emacs-startup-hook (lambda () (yas-load-directory "~/.emacs.d/snippets")))
 
 
 ;;

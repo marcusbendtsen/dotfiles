@@ -13,7 +13,7 @@ for pac in ${packages[@]}; do
     echo "Deleting: $pac"
     stow -d files/ -t ~/ -D $pac
     echo "Activating: $pac"
-    stow -d files/ -t ~/ .
+    stow -v -d files/ -t ~/ .
 done
 
 
