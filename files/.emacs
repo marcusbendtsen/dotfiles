@@ -27,7 +27,7 @@
 ;; Theme
 ;;
 (load-theme 'solarized-dark t)
-(set-face-attribute 'default nil :height 70)
+(set-face-attribute 'default nil :height 90)
 
 ;;
 ;; Settings
