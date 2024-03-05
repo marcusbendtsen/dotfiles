@@ -8,10 +8,11 @@
 
 (require 'org-inlinetask)
 
+(setq org-adapt-indentation t)
+
 (setq org-highest-priority ?A)
 (setq org-lowest-priority ?E)
 (setq org-default-priority ?E)
-
 
 (setq org-agenda-overriding-columns-format "%25ITEM %DEADLINE %SCHEDULED")
 

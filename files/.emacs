@@ -27,7 +27,7 @@
 ;; Theme
 ;;
 (load-theme 'solarized-dark t)
-
+(set-face-attribute 'default nil :height 70)
 
 ;;
 ;; Settings
@@ -63,13 +63,24 @@
 (setq elpy-shell-use-project-root nil)
 (setq elpy-shell-starting-directory 'current-directory)
 
+
 ;;
 ;; ESS (R)
 ;;
 (if (file-directory-p "/Library/Frameworks/R.framework/Resources/bin/")
     (setq inferior-R-program-name "/Library/Frameworks/R.framework/Resources/bin/R"))
 
+(defun my-ess-startup-directory-function ()
+  "Force ESS to use `default-directory' as its startup directory."
+  default-directory)
 
+(setq ess-startup-directory-function 'my-ess-startup-directory-function)
+
+
+;; Auctex (Latex)
+(setq TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view)) 
+      TeX-view-program-selection '((output-pdf "PDF Tools"))  
+      TeX-source-correlate-start-server t)
 
 
 ;;
