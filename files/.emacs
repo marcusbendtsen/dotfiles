@@ -27,7 +27,7 @@
 ;; Theme
 ;;
 (load-theme 'solarized-dark t)
-(set-face-attribute 'default nil :height 90)
+(set-frame-font "Hack-7" nil t)
 
 ;;
 ;; Settings
