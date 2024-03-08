@@ -1,7 +1,7 @@
-"" --------------------------------------------------------------------------------
-
+" -----------------------------------------------------------------------------------
 " automatic vim.plug install 
 "
+
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -11,6 +11,7 @@ endif
 call plug#begin()
 
 Plug 'jalvesaq/Nvim-R'
+Plug 'ericbn/vim-solarized'
 
 call plug#end()
 
@@ -52,9 +53,9 @@ map <C-e> <ESC>$
 imap <C-e> <ESC>A
 
 " Solarized
-syntax enable
-set background=dark
-colorscheme solarized
+"syntax enable
+"set background=dark
+"colorscheme solarized
 
 
 
