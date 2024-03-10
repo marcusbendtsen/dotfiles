@@ -27,7 +27,7 @@
 ;; Theme
 ;;
 (load-theme 'solarized-dark t)
-(set-frame-font "Hack-7" nil t)
+(set-frame-font "Hack-9" nil t)
 
 ;;
 ;; Settings
@@ -39,7 +39,7 @@
 (setenv "LANG" "UTF-8")
 
 (setq column-number-mode t)
-(setq split-width-threshold 80 split-height-threshold 120)
+(setq split-width-threshold 80 split-height-threshold nil)
 (setq-default fill-column 160)
 
 

@@ -7,7 +7,6 @@
 (with-eval-after-load 'org (add-to-list 'org-modules 'org-habit t))
 
 
-
 (require 'org-inlinetask)
 
 (setq org-adapt-indentation t)
