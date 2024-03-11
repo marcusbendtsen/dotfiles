@@ -3,7 +3,7 @@
 ## MODEL
 ##
 mod() {
-    export CMDSTAN_HOME=/opt/cmdstan/cmdstan-2.30.1/
+    export CMDSTAN_HOME=/opt/cmdstan/cmdstan-2.34.1/
     export MODEL_HOME=~/workspace/model/
     source ~/workspace/model/env/bin/activate
     python ~/workspace/model/model.py $@
