@@ -27,6 +27,9 @@ export -f aws_clone
 
 alias git_status="find . -name .git -type d -execdir git status \;"
 alias git_add="find . -name .git -type d -execdir git add . \;"
+alias git_commit="find . -name .git -type d -execdir git commit -m 'commit' \;"
+alias git_pull="find . -name .git -type d -execdir git pull \;"
+alias git_push="find . -name .git -type d -execdir git push \;"
 
 alias git_all="sh git_add.sh; sh git_commit.sh; sh git_pull.sh; sh git_push.sh"
 
