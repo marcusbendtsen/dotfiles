@@ -29,14 +29,7 @@
 (load-theme 'solarized-dark t)
 
 ;; Local settings
-(if (file-exists-p "~/.emacs-local.el")
-    (load "~/.emacs-local.el")
-  (progn
-    (set-frame-font "Hack-9" nil t)
-    (set-frame-font "Hack-9" nil t) ;; Multiple commands can be written here, repeating this to show how
-    )
-  )
-
+(if (file-exists-p "~/.emacs-local.el") (load "~/.emacs-local.el"))
 
 
 ;;
