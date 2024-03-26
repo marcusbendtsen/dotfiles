@@ -5,11 +5,24 @@
 mod() {
     export CMDSTAN_HOME=/opt/cmdstan/cmdstan-2.34.1/
     export MODEL_HOME=~/workspace/model/
-    source ~/workspace/model/env/bin/activate
-    python ~/workspace/model/model.py $@
+    export MODEL_DATA_HOME=/media/data/
+    source $MODEL_HOME/env/bin/activate
+    python $MODEL_HOME/model.py $@
     deactivate
 }
 export -f mod
+
+##
+## Report
+##
+report() {
+    export REPORT_HOME=~/workspace/report/
+    source $REPORT_HOME/env/bin/activate
+    python $REPORT_HOME/report.py $@
+    deactivate
+}
+export -f report
+
 
 ##
 ## Git 
