@@ -23,6 +23,16 @@ report() {
 }
 export -f report
 
+##
+## Hive
+##
+hive() {
+   export HIVE_HOME=~/workspace/hive/
+   source $HIVE_HOME/env/bin/activate
+   python $HIVE_HOME/hive.py $@
+   deactivate
+}
+export -f hive
 
 ##
 ## Git 
