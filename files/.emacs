@@ -11,7 +11,6 @@
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (package-initialize)
 
-
 ;;
 ;; Backups
 ;;
@@ -45,6 +44,7 @@
 (setq split-width-threshold 80 split-height-threshold nil)
 (setq-default fill-column 160)
 
+(setq mac-right-option-modifier nil)
 
 ;;
 ;; Elpy (Python)
