@@ -6,6 +6,7 @@ mod() {
     export CMDSTAN_HOME=/opt/cmdstan/cmdstan-2.34.1/
     export MODEL_HOME=~/workspace/model/
     export MODEL_DATA_HOME=/media/data/
+    export MODEL_SAMPLES=~/samples
     source $MODEL_HOME/env/bin/activate
     python $MODEL_HOME/model.py $@
     deactivate
