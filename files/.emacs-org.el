@@ -12,8 +12,8 @@
 
 (setq org-adapt-indentation t)
 (setq org-highest-priority ?A)
-(setq org-lowest-priority ?E)
-(setq org-default-priority ?E)
+(setq org-lowest-priority ?F)
+(setq org-default-priority ?F)
 (setq org-agenda-overriding-columns-format "%25ITEM %DEADLINE %SCHEDULED")
 (setq org-agenda-log-mode-items '(closed clock state))
 
@@ -130,7 +130,7 @@
 
 
 (add-to-list 'org-agenda-custom-commands
-      '("c" "Calendar"
+      '("s" "Schedule"
          ((random-quote "" nil)
           (agenda ""
                   ((org-agenda-start-day (org-read-date nil nil "++1" nil (org-read-date nil t "-sun")))
@@ -144,10 +144,12 @@
 	     '("a" "Agenda"
 		((random-quote "" nil)
 		 (summarise-entries "" nil)
-		 (tags "PRIORITY=\"A\"" ((org-agenda-overriding-header "Milestones")))
+		 (tags-todo "CATEGORY=\"August\"" ((org-agenda-files (file-expand-wildcards "~/workspace/organiser/todo.org"))) ((org-agenda-overriding-header "Plan")))
+		 (tags "PRIORITY=\"A\"" ((org-agenda-overriding-header "Grants")))
 		 (tags "PRIORITY=\"B\"" ((org-agenda-overriding-header "Key papers")))
 		 (tags "PRIORITY=\"C\"" ((org-agenda-overriding-header "Lab")))
-		 (tags "PRIORITY=\"D\"" ((org-agenda-overriding-header "Superivision and Teaching")))
+		 (tags "PRIORITY=\"D\"" ((org-agenda-overriding-header "Supervision and Teaching")))
+		 (tags "PRIORITY=\"E\"" ((org-agenda-overriding-header "Milestones")))
 		 nil)))
 
 
