@@ -12,8 +12,8 @@
 
 (setq org-adapt-indentation t)
 (setq org-highest-priority ?A)
-(setq org-lowest-priority ?F)
-(setq org-default-priority ?F)
+(setq org-lowest-priority ?Z)
+(setq org-default-priority ?Z)
 (setq org-agenda-overriding-columns-format "%25ITEM %DEADLINE %SCHEDULED")
 (setq org-agenda-log-mode-items '(closed clock state))
 
@@ -32,6 +32,7 @@
 			 "~/workspace/organiser/meetings/"
 			 "~/workspace/organiser/mhed/"
 			 "~/workspace/organiser/notes/"
+			 "~/workspace/organiser/plan/"
 			 "~/workspace/organiser/private/"
 			 "~/workspace/organiser/research/"
 			 "~/workspace/organiser/supervision/"
@@ -64,6 +65,12 @@
 	     '("h" "MHED-lab meeting" entry
 	       (file+headline "~/workspace/organiser/meetings/mhedlabmeeting.org" "MHED-lab meeting")
 	       "* %?" :prepend t :empty-lines-after 2 :empty-lines-before 2))
+
+(add-to-list 'org-capture-templates
+	     '("r" "Rewards" entry
+	       (file+headline "~/workspace/organiser/notes/rewards.org" "Rewards")
+	       "* %?" :prepend t :empty-lines-after 2 :empty-lines-before 2))
+
 
 
 ;;
@@ -110,7 +117,11 @@
   (add-text-properties 0 16 '(face bold) mhed)
   (add-face-text-property 0 16 '(:foreground "#268bd2") nil mhed)
 
-  (insert (concat "\n" sep "\n\n" notes delim sim delim mhed "\n"))
+  (setq rewards (concat "Rewards: " (count-note-entries '("~/workspace/organiser/notes/rewards.org"))))
+  (add-text-properties 0 7 '(face bold) rewards)
+  (add-face-text-property 0 7 '(:foreground "#268bd2") nil rewards)
+
+  (insert (concat "" sep "\n\n" notes delim sim delim mhed delim rewards "\n"))
 
   )
 
@@ -122,11 +133,11 @@
 (setq org-agenda-custom-commands '())
 
 (add-to-list 'org-agenda-custom-commands
-      '("u" "Unscheduled TODO"
-         ((todo ""
-		((org-agenda-overriding-header "\nUnscheduled TODO")
-		 (org-agenda-skip-function '(org-agenda-skip-entry-if 'timestamp))))
-	  nil)))
+	     '("u" "Unscheduled TODO"
+               ((todo ""
+		      ((org-agenda-overriding-header "\nUnscheduled TODO")
+		       (org-agenda-skip-function '(org-agenda-skip-entry-if 'timestamp))))
+		nil)))
 
 
 (add-to-list 'org-agenda-custom-commands
@@ -142,14 +153,12 @@
 
 (add-to-list 'org-agenda-custom-commands
 	     '("a" "Agenda"
-		((random-quote "" nil)
-		 (summarise-entries "" nil)
-		 (tags-todo "CATEGORY=\"August\"" ((org-agenda-files (file-expand-wildcards "~/workspace/organiser/todo.org"))) ((org-agenda-overriding-header "Plan")))
-		 (tags "PRIORITY=\"A\"" ((org-agenda-overriding-header "Grants")))
+		((summarise-entries "" nil)
+		 (tags "PRIORITY=\"M\"" ((org-agenda-overriding-header "Milestones")))
+		 (tags "PRIORITY=\"G\"" ((org-agenda-overriding-header "Grants")))
 		 (tags "PRIORITY=\"B\"" ((org-agenda-overriding-header "Key papers")))
-		 (tags "PRIORITY=\"C\"" ((org-agenda-overriding-header "Lab")))
-		 (tags "PRIORITY=\"D\"" ((org-agenda-overriding-header "Supervision and Teaching")))
-		 (tags "PRIORITY=\"E\"" ((org-agenda-overriding-header "Milestones")))
+		 (tags "PRIORITY=\"L\"" ((org-agenda-overriding-header "Lab")))
+		 (tags "PRIORITY=\"T\"" ((org-agenda-overriding-header "Supervision and Teaching")))
 		 nil)))
 
 
