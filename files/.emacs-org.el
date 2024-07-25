@@ -19,6 +19,8 @@
 
 '(org-todo-keyword-faces (quote (("TODO" . "pink") ("TODO" . "#FAF0E6"))))
 
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key (kbd "C-c c") #'org-capture)
 
 ;;
 ;; Agenda files
@@ -43,7 +45,7 @@
 ;;
 ;; Capture
 ;;
-(global-set-key (kbd "C-c c") #'org-capture)
+
 (setq org-capture-templates '())
 
 (add-to-list 'org-capture-templates
@@ -71,10 +73,8 @@
 	       (file+headline "~/workspace/organiser/notes/rewards.org" "Rewards")
 	       "* %?" :prepend t :empty-lines-after 2 :empty-lines-before 2))
 
-
-
 ;;
-;; Org agenda random quote
+;; Read file
 ;;
 
 (defun read-lines (filePath)
@@ -82,15 +82,27 @@
     (insert-file-contents filePath)
     (split-string (buffer-string) "###" t)))
 
+
+;;
+;; Org agenda random quote
+;;
+
 (setq number-quotes (length (read-lines "~/workspace/organiser/quotes.txt")))
 
 (defun random-quote (&rest _ignore)
-  (insert (nth (random number-quotes) (read-lines "~/workspace/organiser/quotes.txt"))))
+  
+  (setq sep (make-string (window-width) org-agenda-block-separator))
+  (add-text-properties 0 (length sep) '(face bold) sep)
+
+  (setq quote (nth (random number-quotes) (read-lines "~/workspace/organiser/quotes.txt")))
+  
+  (insert (concat sep "\n" quote)))
 
 
 ;;
 ;; Count level 2 items in note files
 ;;
+
 (defun count-note-entries (filePath)
   (setq count (number-to-string (length (org-map-entries t "LEVEL=2" filePath))))
   (add-text-properties 0 (length count) '(face bold) count)
@@ -122,13 +134,13 @@
   (add-face-text-property 0 7 '(:foreground "#268bd2") nil rewards)
 
   (insert (concat "" sep "\n\n" notes delim sim delim mhed delim rewards "\n"))
-
-  )
+  
+)
 
 
 ;;
 ;; Custom agendas
-;;   
+;;
 
 (setq org-agenda-custom-commands '())
 
@@ -152,6 +164,25 @@
 
 
 (add-to-list 'org-agenda-custom-commands
+	     '("p" "Plan"
+	       (
+		(random-quote "" nil)
+		(tags "CATEGORY=\"January\"+PRIORITY=\"P\"" ((org-agenda-overriding-header "January")))
+		(tags "CATEGORY=\"February\"+PRIORITY=\"P\"" ((org-agenda-overriding-header "February")))
+		(tags "CATEGORY=\"March\"+PRIORITY=\"P\"" ((org-agenda-overriding-header "March")))
+		(tags "CATEGORY=\"April\"+PRIORITY=\"P\"" ((org-agenda-overriding-header "April")))
+		(tags "CATEGORY=\"May\"+PRIORITY=\"P\"" ((org-agenda-overriding-header "May")))
+		(tags "CATEGORY=\"June\"+PRIORITY=\"P\"" ((org-agenda-overriding-header "June")))
+		(tags "CATEGORY=\"July\"+PRIORITY=\"P\"" ((org-agenda-overriding-header "July")))
+		(tags "CATEGORY=\"August\"+PRIORITY=\"P\"" ((org-agenda-overriding-header "August")))
+		(tags "CATEGORY=\"September\"+PRIORITY=\"P\"" ((org-agenda-overriding-header "September")))
+		(tags "CATEGORY=\"October\"+PRIORITY=\"P\"" ((org-agenda-overriding-header "October")))
+		(tags "CATEGORY=\"November\"+PRIORITY=\"P\"" ((org-agenda-overriding-header "November")))
+		(tags "CATEGORY=\"December\"+PRIORITY=\"P\"" ((org-agenda-overriding-header "December")))
+		nil)))
+
+
+(add-to-list 'org-agenda-custom-commands
 	     '("a" "Agenda"
 		((summarise-entries "" nil)
 		 (tags "PRIORITY=\"M\"" ((org-agenda-overriding-header "Milestones")))
@@ -160,7 +191,6 @@
 		 (tags "PRIORITY=\"L\"" ((org-agenda-overriding-header "Lab")))
 		 (tags "PRIORITY=\"T\"" ((org-agenda-overriding-header "Supervision and Teaching")))
 		 nil)))
-
 
 
 
