@@ -9,6 +9,7 @@
 ##################################################
 
 table = function(...,useNA=c("always")) base::table(...,useNA=useNA)
+args = commandArgs(trailingOnly=TRUE)
 
 ##################################################
 ## Read data

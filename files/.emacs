@@ -11,7 +11,6 @@
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (package-initialize)
 
-
 ;;
 ;; Backups
 ;;
@@ -45,6 +44,7 @@
 (setq split-width-threshold 80 split-height-threshold nil)
 (setq-default fill-column 160)
 
+(setq mac-right-option-modifier nil)
 
 ;;
 ;; Elpy (Python)
@@ -123,7 +123,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-)
+ '(package-selected-packages
+   '(ess use-package standoff-mode stan-mode solarized-theme quarto-mode org-ref elfeed csv-mode auctex-latexmk))
+ '(warning-suppress-log-types '((comp) (comp) (comp) (comp) (comp)))
+ '(warning-suppress-types '((comp) (comp) (comp) (comp))))
 
 '(custom-safe-themes
   '("0598c6a29e13e7112cfbc2f523e31927ab7dce56ebb2016b567e1eff6dc1fd4f" default))
@@ -132,7 +135,6 @@
   '(auctex-latexmk auctex csv-mode standoff-mode quarto-mode solarized-theme elfeed bibtex-completion org-ref helm-bibtex stan-mode elpy markdown-mode ess))
 
 (custom-set-faces
-
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
@@ -141,6 +143,4 @@
  '(org-level-2 ((t (:inherit outline-2 :foreground "orange"))))
  '(org-level-3 ((t (:inherit outline-3 :foreground "magenta"))))
  '(org-scheduled ((t (:foreground "#419cff"))))
- '(org-scheduled-today ((t (:foreground "pale green"))))
-
- )
+ '(org-scheduled-today ((t (:foreground "pale green")))))
