@@ -35,6 +35,17 @@ hive() {
 }
 export -f hive
 
+hive_dstat() {
+ declare -a arr=("node5" "node6" "node7" "node8")
+ for i in "${arr[@]}"
+ do
+   i3-sensible-terminal -hold -e "ssh -t $i 'dstat'" &
+   sleep .5
+ done
+ ssh -t nfs 'dstat'
+}
+export -f hive_dstat
+
 ##
 ## Git 
 ##
