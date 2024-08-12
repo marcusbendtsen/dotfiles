@@ -124,7 +124,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(ess use-package standoff-mode stan-mode solarized-theme quarto-mode org-ref elfeed csv-mode auctex-latexmk))
+   '(markdown-mode ess use-package standoff-mode stan-mode solarized-theme quarto-mode org-ref elfeed csv-mode auctex-latexmk))
  '(warning-suppress-log-types '((comp) (comp) (comp) (comp) (comp)))
  '(warning-suppress-types '((comp) (comp) (comp) (comp))))
 
@@ -139,6 +139,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((((class color) (min-colors 89)) (:foreground "#839496" :background "#002b36"))))
  '(org-agenda-done ((t (:foreground "#009c00"))))
  '(org-level-2 ((t (:inherit outline-2 :foreground "orange"))))
  '(org-level-3 ((t (:inherit outline-3 :foreground "magenta"))))
