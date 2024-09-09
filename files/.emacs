@@ -27,9 +27,9 @@
 ;;
 (load-theme 'solarized-dark t)
 
+
 ;; Local settings
 (if (file-exists-p "~/.emacs-local.el") (load "~/.emacs-local.el"))
-
 
 ;;
 ;; Settings
@@ -45,6 +45,7 @@
 (setq-default fill-column 160)
 
 (setq mac-right-option-modifier nil)
+(setq ns-right-option-modifier 'none)
 
 ;;
 ;; Elpy (Python)
@@ -59,7 +60,7 @@
 (add-hook 'python-mode-hook
 	  (lambda ()
             (setq tab-width 4)
-	    (setq indent-tabs-mode t)
+	    (setq indent-tabs-mode nil)
             (setq python-indent-offset 4)))
 
 (setq python-indent-guess-indent-offset nil)
