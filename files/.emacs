@@ -125,7 +125,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(markdown-mode ess use-package standoff-mode stan-mode solarized-theme quarto-mode org-ref elfeed csv-mode auctex-latexmk))
+   '(lua-mode markdown-mode ess use-package standoff-mode stan-mode solarized-theme quarto-mode org-ref elfeed csv-mode auctex-latexmk))
  '(warning-suppress-log-types '((comp) (comp) (comp) (comp) (comp)))
  '(warning-suppress-types '((comp) (comp) (comp) (comp))))
 
