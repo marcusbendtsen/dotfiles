@@ -34,7 +34,8 @@ conky.config = {
     gap_y = 0,
     lua_load = '~/.conky.lua',
     minimum_height = 5,
-    minimum_width = 5,
+    minimum_width = 200,
+    maximum_width = 200,
     net_avg_samples = 2,
     no_buffers = true,
     out_to_console = false,
@@ -56,17 +57,16 @@ conky.config = {
 conky.text = [[
 ${color grey}Node:$color $nodename $kernel
 ${color grey}Uptime:$color $uptime
-
 $hr
 ${lua_parse conky_cpu_output}
+${color grey}RAM:$color $mem/$memmax
+$memperc% ${membar 4}
+${color grey}Swap:$color $swap/$swapmax
+$swapperc% ${swapbar 4}
+${color grey}File: $color${fs_used /}/${fs_size /} 
+${fs_bar 6 /}
 $hr
-${color grey}RAM Usage:$color $mem/$memmax - $memperc% ${membar 4}
-${color grey}Swap Usage:$color $swap/$swapmax - $swapperc% ${swapbar 4}
-
-$hr
-${color grey}File system: $color${fs_used /}/${fs_size /} ${fs_bar 6 /}
 ${color grey}Networking: Up:$color ${upspeed enp34s0} ${color grey} - Down:$color ${downspeed enp34s0}
-
 $hr
 ${color grey}Processes:$color $processes  ${color grey}Running:$color $running_processes
 ${color grey}Name                CPU%   MEM%

@@ -25,6 +25,12 @@ report() {
 export -f report
 
 ##
+## SIM
+##
+export SIM_PROJECTS=/media/sim
+
+
+##
 ## Hive
 ##
 hive() {

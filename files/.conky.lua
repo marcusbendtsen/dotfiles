@@ -15,6 +15,7 @@ for i = 1,numcpus do
       listcpus = listcpus.."Core "..tostring(i).." ${freq_g "..cpuname.."}GHz ${color ff8300}${cpubar "..cpuname.." 6}${color FFFDE2}\n"
    end
 end
+listcpus = listcpus.."$hr"
 
 --
 -- Return cpu core syntax
