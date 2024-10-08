@@ -75,3 +75,11 @@ alias git_push="find . -name .git -type d -execdir git push \;"
 
 alias git_all="git_add; git_commit; git_pull; git_push; git_status"
 
+##
+## Filevault
+##
+mount_filevault() {
+    sudo mount -t cifs -o vers=3.02,username=marbe92,domain=AD,uid=marcus,file_mode=0600,dir_mode=0700 //fillager.liu.se/filevault/ /media/filevault/
+}
+export -f mount_filevault
+

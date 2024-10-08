@@ -34,8 +34,8 @@ conky.config = {
     gap_y = 0,
     lua_load = '~/.conky.lua',
     minimum_height = 5,
-    minimum_width = 200,
-    maximum_width = 200,
+    minimum_width = 220,
+    maximum_width = 220,
     net_avg_samples = 2,
     no_buffers = true,
     out_to_console = false,
@@ -56,6 +56,7 @@ conky.config = {
 
 conky.text = [[
 ${color grey}Node:$color $nodename $kernel
+${execi 1000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'| uniq}
 ${color grey}Uptime:$color $uptime
 $hr
 ${lua_parse conky_cpu_output}
