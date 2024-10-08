@@ -27,7 +27,8 @@ export -f report
 ##
 ## SIM
 ##
-export SIM_PROJECTS=/media/sim
+export SIM_HOME=~/workspace/sim
+export SIM_PROJECTS=~/sim_projects
 
 
 ##
