@@ -53,6 +53,33 @@ hive_dstat() {
 }
 export -f hive_dstat
 
+
+hive_conky() {
+ declare -a arr=("nfs" "node5" "node6" "node7" "node8")
+ for i in "${arr[@]}"
+ do
+   sh -c "ssh -X $i conky &"&
+   sleep .5
+ done
+ sh -c "conky -c ~/.conkyrc &"&
+ sh -c "conky -c ~/workspace/hive/conky/queue-left.conky &"&
+ sh -c "conky -c ~/workspace/hive/conky/queue-right.conky &"&x
+}
+
+hive_conky_off() {
+ declare -a arr=("nfs" "node5" "node6" "node7" "node8")
+ for i in "${arr[@]}"
+ do
+   sh -c "ssh $i killall conky"&
+   sleep .5
+ done
+ killall conky
+}
+
+export -f hive_conky
+export -f hive_conky_off
+
+
 ##
 ## Git 
 ##
