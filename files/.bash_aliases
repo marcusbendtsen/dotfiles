@@ -66,7 +66,7 @@ hive_conky() {
  sh -c "conky -c ~/workspace/hive/conky/queue-right.conky &"&x
 }
 
-hive_conky_off() {
+hive_conky_kill() {
  declare -a arr=("nfs" "node5" "node6" "node7" "node8")
  for i in "${arr[@]}"
  do
