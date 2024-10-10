@@ -77,7 +77,7 @@ hive_conky_kill() {
 }
 
 export -f hive_conky
-export -f hive_conky_off
+export -f hive_conky_kill
 
 
 ##
