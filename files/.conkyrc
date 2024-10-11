@@ -57,7 +57,7 @@ conky.config = {
 conky.text = [[
 ${color grey}Node:$color $nodename $kernel
 ${execi 1000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'| uniq}
-${color grey}Time:$color ${time %H:%M:%S}
+${color grey}Time:$color ${exec date}
 ${color grey}Uptime:$color $uptime
 $hr
 ${lua_parse conky_cpu_output}

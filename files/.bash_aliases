@@ -1,4 +1,5 @@
 
+
 ##
 ## MODEL
 ##
@@ -32,55 +33,6 @@ export SIM_PROJECTS=~/sim_projects
 
 
 ##
-## Hive
-##
-hive() {
-   export HIVE_HOME=~/workspace/hive/
-   source $HIVE_HOME/env/bin/activate
-   python $HIVE_HOME/hive.py $@
-   deactivate
-}
-export -f hive
-
-hive_dstat() {
- declare -a arr=("node5" "node6" "node7" "node8")
- for i in "${arr[@]}"
- do
-   i3-sensible-terminal -hold -e "ssh -t $i 'dstat'" &
-   sleep .5
- done
- ssh -t nfs 'dstat'
-}
-export -f hive_dstat
-
-
-hive_conky() {
- declare -a arr=("nfs" "node5" "node6" "node7" "node8")
- for i in "${arr[@]}"
- do
-   sh -c "ssh -X $i conky &"&
-   sleep .5
- done
- sh -c "conky -c ~/.conkyrc &"&
- sh -c "conky -c ~/workspace/hive/conky/queue-left.conky &"&
- sh -c "conky -c ~/workspace/hive/conky/queue-right.conky &"&x
-}
-
-hive_conky_kill() {
- declare -a arr=("nfs" "node5" "node6" "node7" "node8")
- for i in "${arr[@]}"
- do
-   sh -c "ssh $i killall conky"&
-   sleep .5
- done
- killall conky
-}
-
-export -f hive_conky
-export -f hive_conky_kill
-
-
-##
 ## Git 
 ##
 git_clone() {
@@ -109,4 +61,12 @@ mount_filevault() {
     sudo mount -t cifs -o vers=3.02,username=marbe92,domain=AD,uid=marcus,file_mode=0600,dir_mode=0700 //fillager.liu.se/filevault/ /media/filevault/
 }
 export -f mount_filevault
+
+
+##
+## HIVE
+##
+if [ -f ~/workspace/hive/util/bash_hive ]; then
+    . ~/workspace/hive/util/bash_hive
+fi
 
