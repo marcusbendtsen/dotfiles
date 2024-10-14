@@ -17,6 +17,9 @@ alias R="/Library/Frameworks/R.framework/Resources/bin/R"
 alias Rscript="/Library/Frameworks/R.framework/Resources/bin/Rscript"
 
 
+##
+## MODEL
+##
 mod() {
     export MODEL_HOME=/Users/marcus/workspace/model/
     export CMDSTAN_HOME=/opt/cmdstan/cmdstan-2.30.1/
@@ -24,6 +27,14 @@ mod() {
     python $MODEL_HOME/model.py $@
     deactivate	
 }
+
+
+##
+## SIM
+##
+export SIM_HOME=~/workspace/sim
+export SIM_PROJECTS=~/sim_projects
+
 
 ##
 ## Git 
