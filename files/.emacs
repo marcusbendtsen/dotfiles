@@ -44,8 +44,18 @@
 (setq split-width-threshold 80 split-height-threshold nil)
 (setq-default fill-column 160)
 
+
+;;
+;; Modifiers
+;; Note that mod4 should not have ISO_Level3_Shift
+;; in xmodmap. If it does, then execute:
+;; xmodmap -e "remove mod4 = ISO_Level3_Shift"
+;; but this should be set in the .Xmodmap file
+;;
 (setq mac-right-option-modifier nil)
 (setq ns-right-option-modifier 'none)
+
+
 
 ;;
 ;; Elpy (Python)
