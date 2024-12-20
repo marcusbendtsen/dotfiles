@@ -44,8 +44,18 @@
 (setq split-width-threshold 80 split-height-threshold nil)
 (setq-default fill-column 160)
 
+
+;;
+;; Modifiers
+;; Note that mod4 should not have ISO_Level3_Shift
+;; in xmodmap. If it does, then execute:
+;; xmodmap -e "remove mod4 = ISO_Level3_Shift"
+;; but this should be set in the .Xmodmap file
+;;
 (setq mac-right-option-modifier nil)
 (setq ns-right-option-modifier 'none)
+
+
 
 ;;
 ;; Elpy (Python)
@@ -60,7 +70,7 @@
 (add-hook 'python-mode-hook
 	  (lambda ()
             (setq tab-width 4)
-	    (setq indent-tabs-mode nil)
+	    (setq indent-tabs-mode t)
             (setq python-indent-offset 4)))
 
 (setq python-indent-guess-indent-offset nil)
@@ -125,7 +135,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(lua-mode markdown-mode ess use-package standoff-mode stan-mode solarized-theme quarto-mode org-ref elfeed csv-mode auctex-latexmk))
+   '(jinja2-mode lua-mode markdown-mode ess use-package standoff-mode stan-mode solarized-theme quarto-mode org-ref elfeed csv-mode auctex-latexmk))
  '(warning-suppress-log-types '((comp) (comp) (comp) (comp) (comp)))
  '(warning-suppress-types '((comp) (comp) (comp) (comp))))
 
