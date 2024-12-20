@@ -31,7 +31,7 @@ conky.config = {
     extra_newline = false,
     font = 'DejaVu Sans Mono:size=8',
     gap_x = 0,
-    gap_y = 0,
+    gap_y = 800,
     lua_load = '~/.conky.lua',
     minimum_height = 5,
     minimum_width = 220,
