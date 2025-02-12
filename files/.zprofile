@@ -23,6 +23,8 @@ alias Rscript="/Library/Frameworks/R.framework/Resources/bin/Rscript"
 mod() {
     export MODEL_HOME=/Users/marcus/workspace/model/
     export CMDSTAN_HOME=/opt/cmdstan/cmdstan-2.30.1/
+    export MODEL_DATA_HOME=/media/data/
+    export MODEL_SAMPLES=/Users/marcus/samples
     source $MODEL_HOME/env/bin/activate
     python $MODEL_HOME/model.py $@
     deactivate	

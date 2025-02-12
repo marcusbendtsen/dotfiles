@@ -124,7 +124,7 @@ keycode 130 = Hangul NoSymbol Hangul
 keycode 131 = Hangul_Hanja NoSymbol Hangul_Hanja
 keycode 132 =
 keycode 133 = Super_L NoSymbol Super_L
-keycode 134 = ISO_Level3_Shift NoSymbol ISO_Level3_Shift
+keycode 134 = ISO_Level3_Shift
 keycode 135 = Menu NoSymbol Menu
 keycode 136 = Cancel NoSymbol Cancel
 keycode 137 = Redo NoSymbol Redo
@@ -247,7 +247,7 @@ keycode 253 = XF86DisplayOff NoSymbol XF86DisplayOff
 keycode 254 = XF86WWAN NoSymbol XF86WWAN
 keycode 255 = XF86RFKill NoSymbol XF86RFKill
 
-
+remove mod4 = ISO_Level3_Shift
 
 
 
