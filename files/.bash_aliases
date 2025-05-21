@@ -33,6 +33,14 @@ export SIM_PROJECTS=~/sim_projects
 
 
 ##
+## SIMPP
+##
+export SIM_HOME=~/workspace/simpp
+export SIMPP_DB_HOST_PROJECT=nfs
+export SIMPP_DB_HOST_OUTPUT=nfs
+export SIMPP_DB_HOST_STATS=nfs
+
+##
 ## Git 
 ##
 git_clone() {
